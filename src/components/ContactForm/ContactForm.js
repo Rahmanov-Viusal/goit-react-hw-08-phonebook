@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { contactsOperations } from '../../redux/contacts';
+import Button from '@material-ui/core/Button';
 import s from './ContactForm.module.scss';
 
 function ContactForm() {
@@ -35,7 +36,7 @@ function ContactForm() {
       name,
       number,
     };
-    dispatch(addContact(contact));
+    dispatch(contactsOperations.addContact(contact));
 
     reset();
   };
@@ -73,7 +74,14 @@ function ContactForm() {
           placeholder="+38 (099) 999-99-99"
         />
       </label>
-      <button className={s.btn}>add contact</button>
+      <Button
+        variant="contained"
+        color="primary"
+        type="submit"
+        title="Add contact"
+      >
+        Add contact
+      </Button>
     </form>
   );
 }

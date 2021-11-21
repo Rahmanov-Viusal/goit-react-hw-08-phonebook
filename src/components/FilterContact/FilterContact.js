@@ -1,6 +1,6 @@
-import s from "./FilterContact.module.scss";
-import { useSelector, useDispatch } from "react-redux";
-import { filterContact } from "../../redux/actions";
+import s from './FilterContact.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterContact } from '../../redux/contacts/contacts-actions';
 
 const FilterContact = () => {
   const value = useSelector(state => state.contacts.filter);

@@ -1,0 +1,17 @@
+.wrapper {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.title_header {
+  visibility: hidden;
+  text-transform: uppercase;
+  color: rgb(106, 166, 168);
+  text-decoration: blink;
+}
+
+.title {
+  text-transform: uppercase;
+  color: rgb(106, 166, 168);
+  text-decoration: blink;
+}
