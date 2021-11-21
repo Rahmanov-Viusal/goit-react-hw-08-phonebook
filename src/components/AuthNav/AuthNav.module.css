@@ -6,6 +6,7 @@
   border-radius: 4px;
   color: #fff;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .link:not(:last-child) {

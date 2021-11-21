@@ -5,52 +5,20 @@ import IconButton from '@material-ui/core/IconButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { variants } from '../../variables/motionVariable';
 import s from './ContactList.module.scss';
-
-// const Contacts = () => {
-//   const dispatch = useDispatch();
-//   const visibleContacts = useSelector(contactsSelectors.getVisibleContacts);
-//   const loading = useSelector(contactsSelectors.getLoading);
-//   // useEffect(() => dispatch(contactsOperations.fetchContact()), [dispatch]);
-
-//   return (
-//     <>
-//       {loading ? (
-//         <Loader />
-//       ) : (
-//         <ul className={s.filterList}>
-//           {visibleContacts.map(({ id, number, name }) => (
-//             <li className={s.filterListItem} key={id}>
-//               <p className={s.text}>
-//                 {name}: <span className={s.span}>{number}</span>
-//               </p>
-
-//               <Button
-//                 onClick={() => dispatch(contactsOperations.deleteContact(id))}
-//                 type="button"
-//                 variant="contained"
-//                 startIcon={<DeleteIcon />}
-//               >
-//                 Delete
-//               </Button>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </>
-//   );
-// };
-
-// export default Contacts;
+import Loader from '../Loader';
 
 export default function Contacts() {
   const dispatch = useDispatch();
   const visibleContacts = useSelector(contactsSelectors.getVisibleContacts);
   const contacts = useSelector(contactsSelectors.getContacts);
   const error = useSelector(contactsSelectors.getError);
+  const loading = useSelector(contactsSelectors.getLoading);
 
   return (
     <>
-      {contacts.length > 0 && !error ? (
+      {loading ? (
+        <Loader />
+      ) : contacts.length > 0 && !error ? (
         <motion.ul className={s.list}>
           <AnimatePresence>
             {visibleContacts.map(({ id, name, number }) => (

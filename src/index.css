@@ -4,6 +4,10 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.5;
   color: rgb(0, 0, 0);
+  background-image: url('./images/grey.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 h1,

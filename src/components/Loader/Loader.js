@@ -1,15 +1,14 @@
-import Loader from "react-loader-spinner";
-import s from "./Loader.module.css";
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 
 export default function LoaderComponent() {
   return (
     <Loader
-      className={s.loader}
-      type="Grid"
-      color="black"
-      height={80}
-      width={80}
-      timeout={4000}
+      type="Puff"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={3000} //3 secs
     />
   );
 }

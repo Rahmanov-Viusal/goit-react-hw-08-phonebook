@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { contactsOperations } from '../../redux/contacts';
+import { toast } from 'react-toastify';
 import Button from '@material-ui/core/Button';
 import s from './ContactForm.module.scss';
 
@@ -28,7 +29,7 @@ function ContactForm() {
   const onSubmitForm = e => {
     e.preventDefault();
     if (items.find(item => name === item.name)) {
-      alert(`${items.name} is already in contacts`);
+      toast.warn(`${name} already exists in the contact book`);
       reset();
       return;
     }
@@ -46,10 +47,10 @@ function ContactForm() {
   };
   return (
     <form className={s.form} onSubmit={onSubmitForm}>
-      <label>
+      <label className={s.label}>
         Name
         <input
-          className={s.form__input}
+          className={s.input}
           onChange={handleChange}
           value={name}
           type="text"
@@ -60,10 +61,10 @@ function ContactForm() {
           placeholder="Ivan Ivanov"
         />
       </label>
-      <label>
+      <label className={s.label}>
         Number
         <input
-          className={s.form__input}
+          className={s.input}
           onChange={handleChange}
           value={number}
           type="tel"

@@ -9,7 +9,7 @@ const FilterContact = () => {
     <label className={s.label}>
       Find contacts by name
       <input
-        className={s.filterInput}
+        className={s.input}
         onChange={e => dispatch(filterContact(e.target.value))}
         value={value}
       />

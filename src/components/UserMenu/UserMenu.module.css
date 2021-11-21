@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  /* display: flex; */
   align-items: flex-end;
   flex-direction: column;
   padding-top: 10px;
@@ -11,10 +11,10 @@
 }
 
 .name {
-  /* margin-right: 20px; */
+  margin-right: 20px;
   padding-top: 10px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #fff;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
 }
