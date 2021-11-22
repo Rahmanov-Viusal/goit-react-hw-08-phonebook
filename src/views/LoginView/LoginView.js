@@ -10,24 +10,16 @@ import styles from './LoginView.module.css';
 export default function LoginView() {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.getLoading);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+  const { email, password } = user;
 
   const handleChange = event => {
     const { name, value } = event.target;
 
-    switch (name) {
-      case 'email':
-        setEmail(value);
-        break;
-
-      case 'password':
-        setPassword(value);
-        break;
-
-      default:
-        return;
-    }
+    setUser(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = event => {
@@ -36,8 +28,10 @@ export default function LoginView() {
       return toast.error('Not all fields are filled in!');
     }
     dispatch(authOperations.logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+    setUser({
+      email: '',
+      password: '',
+    });
   };
 
   return (

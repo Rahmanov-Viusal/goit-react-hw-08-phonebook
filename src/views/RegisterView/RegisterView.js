@@ -10,23 +10,19 @@ import styles from './RegisterView.module.css';
 export default function RegisterView() {
   const dispatch = useDispatch();
   const isLoading = useSelector(authSelectors.getLoading);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const { name, email, password } = user;
 
   const handleChange = event => {
     const { name, value } = event.target;
 
-    switch (name) {
-      case 'name':
-        return setName(value);
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
+    console.log(event.target);
+
+    setUser(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = event => {
@@ -39,9 +35,11 @@ export default function RegisterView() {
       );
     }
     dispatch(authOperations.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
+    setUser({
+      name: '',
+      email: '',
+      password: '',
+    });
   };
 
   return (
